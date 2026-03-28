@@ -140,6 +140,7 @@ textarea{width:100%;height:260px;background:var(--s2);border:1px solid var(--bd)
     <button class="nt on" onclick="go('matches')">Matches</button>
     <button class="nt" onclick="go('stand')">Standings</button>
     <button class="nt" onclick="go('players')">Players</button>
+    <button class="nt" onclick="go('rules')">Rules</button>
     <button class="nt" onclick="go('setup')">Setup</button>
   </div>
   <button class="abtn" id="abtn" onclick="toggleAdmin()">Admin</button>
@@ -300,7 +301,7 @@ function ppLeft(pid,w){return PP_MAX-(S.ppUsed[pid]?.[w]||0)}
 function go(p){
   page=p;
   document.querySelectorAll('.nt').forEach((t,i)=>{
-    t.classList.toggle('on',['matches','stand','players','setup'][i]===p)
+    t.classList.toggle('on',['rules','matches','stand','players','setup'][i]===p)
   });
   render()
 }
@@ -315,6 +316,51 @@ const dl=m=>new Date(m.d+'T'+m.t+':00+05:30');
 
 // ── PAGES ─────────────────────────────────────────────────────
 const pages={
+
+  rules(){
+  return`<h1>Rule<span>s</span></h1>
+  <div class="card">
+    <div class="w6 sm" style="margin-bottom:14px">Predictions (per match)</div>
+    <div class="sm" style="line-height:1.8">Each player submits before the first ball of each match:<br>
+    1. Winning team &nbsp; 2. Top run scorer &nbsp; 3. Top wicket taker &nbsp; 4. Man of the Match</div>
+  </div>
+  <div class="card">
+    <div class="w6 sm" style="margin-bottom:14px">Scoring</div>
+    <div class="sm" style="line-height:2">
+      Winning team correct: <span class="or w6">+2 pts</span><br>
+      Top run scorer correct: <span class="or w6">+3 pts</span><br>
+      Top wicket taker correct: <span class="or w6">+3 pts</span><br>
+      Man of the Match correct: <span class="or w6">+4 pts</span><br>
+      All 4 correct bonus: <span class="or w6">+3 pts</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="w6 sm" style="margin-bottom:14px">⚡ Powerplay</div>
+    <div class="sm" style="line-height:1.8">
+      Each player gets <span class="or w6">2 powerplays per week</span>. Declare on one category per match.<br><br>
+      If correct → points for that category are <span class="tl w6">doubled</span><br>
+      If wrong → lose <span style="color:var(--re)" class="w6">half the base points</span> (rounded down)<br>
+      Unused powerplays do <strong>not</strong> carry over to the next week.
+    </div>
+  </div>
+  <div class="card">
+    <div class="w6 sm" style="margin-bottom:14px">Deadlines & Ties</div>
+    <div class="sm" style="line-height:1.8">
+      Submissions close at the <span class="or w6">first ball of each match</span>. Late = void, no exceptions.<br>
+      Double-header days have separate deadlines per match.<br><br>
+      If two players share top scorer/wickets, <span class="or w6">both names score full points</span>.<br>
+      Rain/no result = no points awarded.
+    </div>
+  </div>
+  <div class="card">
+    <div class="w6 sm" style="margin-bottom:14px">Tiebreaker (end of league)</div>
+    <div class="sm" style="line-height:1.8">
+      1. Most powerplays used correctly<br>
+      2. Head-to-head record
+    </div>
+  </div>`;
+},
+  
 
 matches(){
   const now=new Date();
