@@ -687,7 +687,7 @@ async function doSync(){const ok=await pull();render();toast(ok?'Synced!':'Sync 
 
 // ── ADMIN ─────────────────────────────────────────────────────
 function toggleAdmin(){
-  if(!adminOn){const pw=prompt('Admin password:');if(pw!=='ipl2026'){alert('Wrong.');return}}
+  if(!adminOn){const pw=prompt('Admin password:');if(pw!=='villageganggame26'){alert('Wrong.');return}}
   adminOn=!adminOn;
   document.getElementById('abtn').classList.toggle('on',adminOn);
   render();
