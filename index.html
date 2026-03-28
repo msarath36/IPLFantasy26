@@ -7,26 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0a0a0f;--s1:#111118;--s2:#1a1a24;--bd:#2a2a3a;
-  --or:#f5a623;--pk:#e8356d;--tl:#00d4aa;--tx:#f0f0f5;--mu:#666680;--re:#ff4757;
-}
+:root{--bg:#0a0a0f;--s1:#111118;--s2:#1a1a24;--bd:#2a2a3a;--or:#f5a623;--pk:#e8356d;--tl:#00d4aa;--tx:#f0f0f5;--mu:#666680;--re:#ff4757}
 body{background:var(--bg);color:var(--tx);font-family:'DM Sans',sans-serif;min-height:100vh;
-  background-image:radial-gradient(ellipse at 20% 0%,rgba(245,166,35,.07) 0%,transparent 60%),
-  radial-gradient(ellipse at 80% 100%,rgba(232,53,109,.07) 0%,transparent 60%)}
-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;
-  border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100;
-  background:rgba(10,10,15,.95);backdrop-filter:blur(10px)}
+  background-image:radial-gradient(ellipse at 20% 0%,rgba(245,166,35,.07) 0%,transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(232,53,109,.07) 0%,transparent 60%)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-filter:blur(10px)}
 .logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;color:var(--or)}
 .logo em{color:var(--pk);font-style:normal}
 .nav-tabs{display:flex;gap:2px}
-.nt{padding:7px 14px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500;
-  border:none;background:transparent;color:var(--mu);transition:all .2s;font-family:'DM Sans',sans-serif}
+.nt{padding:7px 14px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500;border:none;background:transparent;color:var(--mu);transition:all .2s;font-family:'DM Sans',sans-serif}
 .nt:hover{color:var(--tx);background:var(--s2)}
 .nt.on{background:var(--s2);color:var(--or);border:1px solid var(--bd)}
-.abtn{padding:7px 13px;border-radius:6px;font-size:12px;font-weight:500;
-  border:1px solid var(--bd);background:var(--s2);color:var(--mu);cursor:pointer;
-  transition:all .2s;font-family:'DM Sans',sans-serif}
+.abtn{padding:7px 13px;border-radius:6px;font-size:12px;font-weight:500;border:1px solid var(--bd);background:var(--s2);color:var(--mu);cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif}
 .abtn:hover{color:var(--or);border-color:var(--or)}
 .abtn.on{color:var(--or);border-color:var(--or);background:rgba(245,166,35,.08)}
 main{max-width:880px;margin:0 auto;padding:24px 18px}
@@ -34,6 +25,718 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:2px;margin-
 h1 span{color:var(--or)}
 .card{background:var(--s1);border:1px solid var(--bd);border-radius:12px;padding:20px;margin-bottom:12px}
 label{display:block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--mu);margin-bottom:6px}
+input,select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--bd);background:var(--s2);color:var(--tx);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+input:focus,select:focus{border-color:var(--or)}
+select option{background:var(--s2)}
+.fg{margin-bottom:14px}
+.btn{padding:9px 20px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.bp{background:var(--or);color:#000}.bp:hover{background:#ffb84d;transform:translateY(-1px)}
+.bg{background:transparent;border:1px solid var(--bd);color:var(--mu)}.bg:hover{border-color:var(--tx);color:var(--tx)}
+.b2{background:var(--pk);color:#fff}.b2:hover{background:#ff5585}
+.bd2{background:var(--re);color:#fff}
+.bs{padding:6px 12px;font-size:12px}
+.mc{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:15px 18px;margin-bottom:8px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.mc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--or);border-radius:2px 0 0 2px}
+.mc:hover{border-color:var(--or);transform:translateX(2px)}
+.mc.done::before{background:var(--tl)}
+.mc.old::before{background:var(--mu)}
+.mm{font-size:10px;color:var(--mu);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.mt{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:1px}
+.mt .vs{color:var(--pk);font-size:14px;margin:0 7px}
+.md{font-size:11px;color:var(--or);margin-top:4px;font-family:'DM Mono',monospace}
+.tz{font-size:10px;color:var(--mu);margin-top:3px;font-family:'DM Mono',monospace}
+.sb{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;padding:3px 8px;border-radius:4px}
+.so{background:rgba(0,212,170,.15);color:var(--tl)}
+.sd{background:rgba(245,166,35,.15);color:var(--or)}
+.sc{background:rgba(102,102,128,.2);color:var(--mu)}
+.ss{background:rgba(232,53,109,.15);color:var(--pk)}
+.lr{display:grid;grid-template-columns:32px 1fr 65px 65px 65px;align-items:center;padding:12px 13px;border-radius:8px;margin-bottom:5px;background:var(--s2);border:1px solid transparent;transition:all .2s;cursor:pointer}
+.lr:hover{border-color:var(--bd)}
+.r1{background:rgba(245,166,35,.08);border-color:rgba(245,166,35,.3)!important}
+.r2{background:rgba(232,53,109,.06);border-color:rgba(232,53,109,.2)!important}
+.r3{background:rgba(0,212,170,.06);border-color:rgba(0,212,170,.2)!important}
+.rn{font-family:'Bebas Neue',sans-serif;font-size:19px;color:var(--mu)}
+.r1 .rn{color:var(--or)}.r2 .rn{color:var(--pk)}.r3 .rn{color:var(--tl)}
+.pn{font-weight:600;font-size:14px}
+.lp{font-family:'Bebas Neue',sans-serif;font-size:21px;color:var(--or);text-align:center}
+.ls{font-size:11px;color:var(--mu);text-align:center}
+.lq{font-size:11px;font-family:'DM Mono',monospace;text-align:center;color:var(--mu)}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.pc{background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:11px}
+.pl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--mu);margin-bottom:4px}
+.pv{font-size:13px;font-weight:500}
+.pc.ok{border-color:var(--tl);background:rgba(0,212,170,.06)}
+.pc.no{border-color:var(--re);background:rgba(255,71,87,.05)}
+.pc.pp{position:relative}.pc.pp::after{content:'⚡';position:absolute;top:6px;right:7px;font-size:11px}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:18px}
+.sc2{background:var(--s1);border:1px solid var(--bd);border-radius:10px;padding:14px;text-align:center}
+.sn{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--or);line-height:1}
+.sl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--mu);margin-top:3px}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:200;display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(4px)}
+.ov.h{display:none}
+.mo{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:26px;max-width:490px;width:100%;max-height:90vh;overflow-y:auto}
+.mo-t{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:2px;margin-bottom:18px}
+.al{padding:10px 13px;border-radius:8px;font-size:12px;margin-bottom:12px;border:1px solid var(--bd)}
+.ai{background:rgba(0,212,170,.07);border-color:rgba(0,212,170,.25);color:var(--tl)}
+.aw{background:rgba(245,166,35,.07);border-color:rgba(245,166,35,.25);color:var(--or)}
+.pill{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.po{background:rgba(245,166,35,.15);color:var(--or)}
+.hr{border:none;border-top:1px solid var(--bd);margin:16px 0}
+.wh{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;margin-top:20px}
+.wl{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;color:var(--mu)}
+.mu{color:var(--mu)}.or{color:var(--or)}.tl{color:var(--tl)}
+.xs{font-size:11px}.sm{font-size:13px}.w6{font-weight:600}
+.mt8{margin-top:8px}.mt16{margin-top:16px}.mt20{margin-top:20px}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid var(--bd);border-top-color:var(--or);border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+textarea{width:100%;height:260px;background:var(--s2);border:1px solid var(--bd);border-radius:8px;padding:11px;font-family:'DM Mono',monospace;font-size:11px;color:var(--tx);resize:vertical;line-height:1.5;outline:none}
+.step{display:flex;gap:12px;margin-bottom:13px;text-align:left}
+.sn2{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--or);color:#000;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--s1);border:1px solid var(--bd);color:var(--tx);padding:9px 18px;border-radius:8px;font-size:13px;z-index:300;opacity:0;transition:opacity .3s;pointer-events:none}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px}
+@media(max-width:560px){
+  nav{padding:11px 13px}main{padding:16px 11px}
+  .sg{grid-template-columns:1fr 1fr}.pg{grid-template-columns:1fr}
+  .lr{grid-template-columns:26px 1fr 52px 52px}.lq{display:none}
+  .nt{padding:6px 9px;font-size:12px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">IPL <em>Fantasy</em> <span style="font-size:13px;color:var(--mu)">2026</span></div>
+  <div class="nav-tabs" id="navTabs">
+    <button class="nt" data-page="rules" onclick="go('rules')">Rules</button>
+    <button class="nt on" data-page="matches" onclick="go('matches')">Matches</button>
+    <button class="nt" data-page="stand" onclick="go('stand')">Standings</button>
+    <button class="nt" data-page="players" onclick="go('players')">Players</button>
+  </div>
+  <button class="abtn" id="abtn" onclick="toggleAdmin()">Admin</button>
+</nav>
+<main id="app"></main>
+<div class="ov h" id="ov" onclick="ovClick(event)"><div class="mo" id="mo"></div></div>
+<div id="toast"></div>
+<script>
+const ADMIN_PW='villageganggame26';
+
+// ── SQUADS ────────────────────────────────────────────────────
+const SQUADS={
+  'Chennai Super Kings':['Ruturaj Gaikwad','MS Dhoni','Sanju Samson','Dewald Brevis','Ayush Mhatre','Kartik Sharma','Sarfaraz Khan','Urvil Patel','Shivam Dube','Anshul Kamboj','Jamie Overton','Ramakrishna Ghosh','Prashant Veer','Matthew Short','Aman Khan','Zak Foulkes','Khaleel Ahmed','Noor Ahmad','Mukesh Choudhary','Nathan Ellis','Shreyas Gopal','Gurjapneet Singh','Akeal Hosein','Matt Henry','Rahul Chahar'],
+  'Mumbai Indians':['Rohit Sharma','Suryakumar Yadav','Robin Minz','Sherfane Rutherford','Ryan Rickelton','Quinton de Kock','Danish Malewar','Tilak Varma','Hardik Pandya','Naman Dhir','Mitchell Santner','Raj Angad Bawa','Atharva Ankolekar','Mayank Rawat','Corbin Bosch','Will Jacks','Shardul Thakur','Jasprit Bumrah','Trent Boult','Deepak Chahar','Mayank Markande','Ashwani Kumar','Mohammad Izhar','Raghu Sharma'],
+  'Royal Challengers Bengaluru':['Virat Kohli','Phil Salt','Devdutt Padikkal','Rajat Patidar','Jitesh Sharma','Jordan Cox','Krunal Pandya','Tim David','Romario Shepherd','Jacob Bethell','Venkatesh Iyer','Satvik Deswal','Mangesh Yadav','Vicky Ostwal','Vihaan Malhotra','Kanishk Chouhan','Bhuvneshwar Kumar','Josh Hazlewood','Yash Dayal','Nuwan Thushara','Suyash Sharma','Rasikh Dar','Jacob Duffy','Abhinandan Singh'],
+  'Kolkata Knight Riders':['Ajinkya Rahane','Angkrish Raghuvanshi','Manish Pandey','Rinku Singh','Rovman Powell','Finn Allen','Tim Seifert','Tejasvi Singh','Rahul Tripathi','Cameron Green','Anukul Roy','Sarthak Ranjan','Daksh Kamra','Rachin Ravindra','Ramandeep Singh','Vaibhav Arora','Matheesha Pathirana','Kartik Tyagi','Prashant Solanki','Akash Deep','Harshit Rana','Umran Malik','Sunil Narine','Varun Chakravarthy','Blessing Muzarabani'],
+  'Sunrisers Hyderabad':['Ishan Kishan','Aniket Verma','Smaran Ravichandran','Heinrich Klaasen','Travis Head','Abhishek Sharma','Nitish Kumar Reddy','Harshal Patel','Kamindu Mendis','Harsh Dubey','Brydon Carse','Liam Livingstone','Jack Edwards','Pat Cummins','Zeeshan Ansari','Jaydev Unadkat','Eshan Malinga','Sakib Hussain','Onkar Tarmale','Amit Kumar','Praful Hinge','Shivam Mavi','Salil Arora','Shivang Kumar'],
+  'Delhi Capitals':['KL Rahul','Karun Nair','David Miller','Ben Duckett','Pathum Nissanka','Sahil Parakh','Prithvi Shaw','Abhishek Porel','Tristan Stubbs','Axar Patel','Sameer Rizvi','Ashutosh Sharma','Vipraj Nigam','Ajay Mandal','Tripurana Vijay','Madhav Tiwari','Auqib Dar','Nitish Rana','Mitchell Starc','T. Natarajan','Mukesh Kumar','Dushmantha Chameera','Lungi Ngidi','Kyle Jamieson','Kuldeep Yadav'],
+  'Lucknow Super Giants':['Rishabh Pant','Aiden Markram','Himmat Singh','Matthew Breetzke','Mukul Choudhary','Akshat Raghuwanshi','Josh Inglis','Nicholas Pooran','Mitchell Marsh','Abdul Samad','Shahbaz Ahmed','Arshin Kulkarni','Wanindu Hasaranga','Ayush Badoni','Mohammad Shami','Avesh Khan','Manimaran Siddharth','Digvesh Singh','Akash Singh','Prince Yadav','Arjun Tendulkar','Anrich Nortje','Naman Tiwari','Mayank Yadav','Mohsin Khan'],
+  'Rajasthan Royals':['Riyan Parag','Yashasvi Jaiswal','Shubham Dubey','Vaibhav Suryavanshi','Donovan Ferreira','Lhuan-dre Pretorius','Ravi Singh','Aman Rao Perala','Shimron Hetmyer','Dhruv Jurel','Yudhvir Singh Charak','Ravindra Jadeja','Sam Curran','Jofra Archer','Tushar Deshpande','Kwena Maphaka','Ravi Bishnoi','Sushant Mishra','Yash Raj Punia','Vignesh Puthur','Brijesh Sharma','Adam Milne','Kuldeep Sen','Sandeep Sharma','Nandre Burger'],
+  'Gujarat Titans':['Shubman Gill','Jos Buttler','Kumar Kushagra','Anuj Rawat','Tom Banton','Glenn Phillips','Sai Sudharsan','Shahrukh Khan','Nishant Sindhu','Washington Sundar','Mohd. Arshad Khan','Sai Kishore','Jayant Yadav','Jason Holder','Kagiso Rabada','Mohammed Siraj','Prasidh Krishna','Manav Suthar','Gurnoor Singh Brar','Ishant Sharma','Ashok Sharma','Luke Wood','Rahul Tewatia','Rashid Khan','Prithvi Raj Yarra'],
+  'Punjab Kings':['Shreyas Iyer','Nehal Wadhera','Vishnu Vinod','Harnoor Pannu','Pyla Avinash','Prabhsimran Singh','Shashank Singh','Marcus Stoinis','Harpreet Brar','Marco Jansen','Azmatullah Omarzai','Priyansh Arya','Musheer Khan','Suryansh Shedge','Mitch Owen','Cooper Connolly','Ben Dwarshuis','Arshdeep Singh','Yuzvendra Chahal','Vyshak Vijaykumar','Yash Thakur','Xavier Bartlett','Pravin Dubey','Vishal Nishad','Lockie Ferguson'],
+};
+
+// ── FIXTURES ─────────────────────────────────────────────────
+const FX=[
+  [1,'2026-03-28','19:30','Royal Challengers Bengaluru','Sunrisers Hyderabad'],
+  [2,'2026-03-29','19:30','Mumbai Indians','Kolkata Knight Riders'],
+  [3,'2026-03-30','19:30','Rajasthan Royals','Chennai Super Kings'],
+  [4,'2026-03-31','19:30','Punjab Kings','Gujarat Titans'],
+  [5,'2026-04-01','19:30','Lucknow Super Giants','Delhi Capitals'],
+  [6,'2026-04-02','19:30','Kolkata Knight Riders','Sunrisers Hyderabad'],
+  [7,'2026-04-03','19:30','Chennai Super Kings','Punjab Kings'],
+  [8,'2026-04-04','15:30','Delhi Capitals','Mumbai Indians'],
+  [9,'2026-04-04','19:30','Gujarat Titans','Rajasthan Royals'],
+  [10,'2026-04-05','15:30','Sunrisers Hyderabad','Lucknow Super Giants'],
+  [11,'2026-04-05','19:30','Royal Challengers Bengaluru','Chennai Super Kings'],
+  [12,'2026-04-06','19:30','Kolkata Knight Riders','Punjab Kings'],
+  [13,'2026-04-07','19:30','Rajasthan Royals','Mumbai Indians'],
+  [14,'2026-04-08','19:30','Delhi Capitals','Gujarat Titans'],
+  [15,'2026-04-09','19:30','Kolkata Knight Riders','Lucknow Super Giants'],
+  [16,'2026-04-10','19:30','Rajasthan Royals','Royal Challengers Bengaluru'],
+  [17,'2026-04-11','15:30','Punjab Kings','Sunrisers Hyderabad'],
+  [18,'2026-04-11','19:30','Chennai Super Kings','Delhi Capitals'],
+  [19,'2026-04-12','15:30','Lucknow Super Giants','Gujarat Titans'],
+  [20,'2026-04-12','19:30','Mumbai Indians','Royal Challengers Bengaluru'],
+  [21,'2026-04-13','19:30','Sunrisers Hyderabad','Rajasthan Royals'],
+  [22,'2026-04-14','19:30','Chennai Super Kings','Kolkata Knight Riders'],
+  [23,'2026-04-15','19:30','Royal Challengers Bengaluru','Lucknow Super Giants'],
+  [24,'2026-04-16','19:30','Mumbai Indians','Punjab Kings'],
+  [25,'2026-04-17','19:30','Gujarat Titans','Kolkata Knight Riders'],
+  [26,'2026-04-18','15:30','Royal Challengers Bengaluru','Delhi Capitals'],
+  [27,'2026-04-18','19:30','Sunrisers Hyderabad','Chennai Super Kings'],
+  [28,'2026-04-19','15:30','Kolkata Knight Riders','Rajasthan Royals'],
+  [29,'2026-04-19','19:30','Punjab Kings','Lucknow Super Giants'],
+  [30,'2026-04-20','19:30','Gujarat Titans','Mumbai Indians'],
+  [31,'2026-04-21','19:30','Sunrisers Hyderabad','Delhi Capitals'],
+  [32,'2026-04-22','19:30','Lucknow Super Giants','Rajasthan Royals'],
+  [33,'2026-04-23','19:30','Mumbai Indians','Chennai Super Kings'],
+  [34,'2026-04-24','19:30','Royal Challengers Bengaluru','Gujarat Titans'],
+  [35,'2026-04-25','15:30','Delhi Capitals','Punjab Kings'],
+  [36,'2026-04-25','19:30','Rajasthan Royals','Sunrisers Hyderabad'],
+  [37,'2026-04-26','15:30','Gujarat Titans','Chennai Super Kings'],
+  [38,'2026-04-26','19:30','Lucknow Super Giants','Kolkata Knight Riders'],
+  [39,'2026-04-27','19:30','Delhi Capitals','Royal Challengers Bengaluru'],
+  [40,'2026-04-28','19:30','Punjab Kings','Rajasthan Royals'],
+  [41,'2026-04-29','19:30','Mumbai Indians','Sunrisers Hyderabad'],
+  [42,'2026-04-30','19:30','Gujarat Titans','Royal Challengers Bengaluru'],
+  [43,'2026-05-01','19:30','Rajasthan Royals','Delhi Capitals'],
+  [44,'2026-05-02','19:30','Chennai Super Kings','Mumbai Indians'],
+  [45,'2026-05-03','15:30','Sunrisers Hyderabad','Kolkata Knight Riders'],
+  [46,'2026-05-03','19:30','Gujarat Titans','Punjab Kings'],
+  [47,'2026-05-04','19:30','Mumbai Indians','Lucknow Super Giants'],
+  [48,'2026-05-05','19:30','Delhi Capitals','Chennai Super Kings'],
+  [49,'2026-05-06','19:30','Sunrisers Hyderabad','Punjab Kings'],
+  [50,'2026-05-07','19:30','Lucknow Super Giants','Royal Challengers Bengaluru'],
+  [51,'2026-05-08','19:30','Delhi Capitals','Kolkata Knight Riders'],
+  [52,'2026-05-09','19:30','Rajasthan Royals','Gujarat Titans'],
+  [53,'2026-05-10','15:30','Chennai Super Kings','Lucknow Super Giants'],
+  [54,'2026-05-10','19:30','Royal Challengers Bengaluru','Mumbai Indians'],
+  [55,'2026-05-11','19:30','Punjab Kings','Delhi Capitals'],
+  [56,'2026-05-12','19:30','Gujarat Titans','Sunrisers Hyderabad'],
+  [57,'2026-05-13','19:30','Royal Challengers Bengaluru','Kolkata Knight Riders'],
+  [58,'2026-05-14','19:30','Punjab Kings','Mumbai Indians'],
+  [59,'2026-05-15','19:30','Lucknow Super Giants','Chennai Super Kings'],
+  [60,'2026-05-16','19:30','Kolkata Knight Riders','Gujarat Titans'],
+  [61,'2026-05-17','15:30','Punjab Kings','Royal Challengers Bengaluru'],
+  [62,'2026-05-17','19:30','Delhi Capitals','Rajasthan Royals'],
+  [63,'2026-05-18','19:30','Chennai Super Kings','Sunrisers Hyderabad'],
+  [64,'2026-05-19','19:30','Rajasthan Royals','Lucknow Super Giants'],
+  [65,'2026-05-20','19:30','Kolkata Knight Riders','Mumbai Indians'],
+  [66,'2026-05-21','19:30','Chennai Super Kings','Gujarat Titans'],
+  [67,'2026-05-22','19:30','Sunrisers Hyderabad','Royal Challengers Bengaluru'],
+  [68,'2026-05-23','19:30','Lucknow Super Giants','Punjab Kings'],
+  [69,'2026-05-24','15:30','Mumbai Indians','Rajasthan Royals'],
+  [70,'2026-05-24','19:30','Kolkata Knight Riders','Delhi Capitals'],
+];
+const wk=d=>{const s=new Date('2026-03-28'),t=new Date(d);return Math.floor((t-s)/(7*864e5))+1};
+const MATCHES=FX.map(([n,d,t,t1,t2])=>({id:'m'+n,n,d,t,t1,t2,w:wk(d)}));
+const AB={'Royal Challengers Bengaluru':'RCB','Sunrisers Hyderabad':'SRH','Mumbai Indians':'MI','Kolkata Knight Riders':'KKR','Rajasthan Royals':'RR','Chennai Super Kings':'CSK','Punjab Kings':'PBKS','Gujarat Titans':'GT','Lucknow Super Giants':'LSG','Delhi Capitals':'DC'};
+const ab=x=>AB[x]||x;
+
+// ── HELPERS ───────────────────────────────────────────────────
+function squadOpts(teams, selected=''){
+  const all=[...new Set([...((SQUADS[teams[0]])||[]),...((SQUADS[teams[1]])||[])])].sort();
+  return'<option value="">Select player...</option>'+all.map(p=>`<option value="${p}"${p===selected?' selected':''}>${p}</option>`).join('');
+}
+
+function tzTimes(timeStr){
+  const[h,m]=timeStr.split(':').map(Number);
+  const ist=h*60+m;
+  const fmt=mins=>{const t=((mins%1440)+1440)%1440,hh=Math.floor(t/60),mm=t%60,ap=hh>=12?'pm':'am',h12=hh%12||12;return h12+(mm?':'+String(mm).padStart(2,'0'):'')+ap};
+  return{ist:fmt(ist),cet:fmt(ist-210),pst:fmt(ist-750)};
+}
+
+// ── SCORING ──────────────────────────────────────────────────
+const SC={winner:2,topBat:3,topBowl:3,motm:4,allBonus:3};
+const PEN={winner:-1,topBat:-1,topBowl:-1,motm:-2};
+const PP_MAX=2;
+
+function score(pred,res){
+  if(!pred||!res||!res.ok)return null;
+  let pts=0,bd={},all=true;
+  ['winner','topBat','topBowl','motm'].forEach(k=>{
+    const ok=(pred[k]||'').trim().toLowerCase()===(res[k]||'').trim().toLowerCase()&&pred[k];
+    const pp=pred.pp===k;
+    if(!ok)all=false;
+    if(pp){const p=ok?SC[k]*2:PEN[k];pts+=p;bd[k]={pts:p,ok,pp:true}}
+    else{const p=ok?SC[k]:0;pts+=p;bd[k]={pts:p,ok,pp:false}}
+  });
+  if(all){pts+=SC.allBonus;bd.all=SC.allBonus}
+  return{pts,bd}
+}
+
+// ── STATE ─────────────────────────────────────────────────────
+const D={players:[],predictions:{},results:{},ppUsed:{},sheetUrl:'',curPlayer:null};
+let S=JSON.parse(JSON.stringify(D));
+let adminOn=false,page='matches',syncing=false,lastSync=null;
+
+function save(){try{localStorage.setItem('ipl26',JSON.stringify({players:S.players,predictions:S.predictions,results:S.results,ppUsed:S.ppUsed,sheetUrl:S.sheetUrl,curPlayer:S.curPlayer}))}catch(e){}}
+function load(){try{const r=localStorage.getItem('ipl26');if(r){const p=JSON.parse(r);Object.assign(S,p)}}catch(e){}}
+
+// ── SHEETS SYNC ───────────────────────────────────────────────
+async function pull(){
+  if(!S.sheetUrl)return false;
+  try{
+    const r=await fetch(S.sheetUrl+'?action=read&t='+Date.now());
+    const d=await r.json();
+    if(d.players)S.players=d.players;
+    if(d.predictions)S.predictions=d.predictions;
+    if(d.results)S.results=d.results;
+    if(d.ppUsed)S.ppUsed=d.ppUsed;
+    lastSync=new Date();save();return true;
+  }catch(e){return false}
+}
+async function push(payload){
+  save();
+  if(!S.sheetUrl)return true;
+  try{
+    const r=await fetch(S.sheetUrl,{method:'POST',body:JSON.stringify(payload)});
+    const d=await r.json();
+    return d.ok===true;
+  }catch(e){return false}
+}
+
+function totals(){
+  return S.players.map(p=>{
+    let pts=0,subs=0,ppc=0,ppu=0;
+    MATCHES.forEach(m=>{
+      const pr=S.predictions[m.id]?.[p.id],re=S.results[m.id];
+      if(!pr)return;subs++;
+      const sc=score(pr,re);
+      if(sc){pts+=sc.pts;if(pr.pp){ppu++;if(sc.bd[pr.pp]?.ok)ppc++}}
+    });
+    return{...p,pts,subs,ppc,ppu}
+  }).sort((a,b)=>b.pts-a.pts)
+}
+function ppLeft(pid,w){return PP_MAX-(S.ppUsed[pid]?.[w]||0)}
+
+// ── ROUTER ────────────────────────────────────────────────────
+function go(p){
+  page=p;
+  document.querySelectorAll('#navTabs .nt').forEach(t=>t.classList.toggle('on',t.dataset.page===p));
+  render();
+}
+function render(){document.getElementById('app').innerHTML=pages[page]()}
+
+const fd=d=>new Date(d+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+const fdt=dt=>new Date(dt).toLocaleDateString('en-GB',{day:'numeric',month:'short'})+' '+new Date(dt).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+const dl=m=>new Date(m.d+'T'+m.t+':00+05:30');
+
+// ── PAGES ─────────────────────────────────────────────────────
+const pages={
+
+rules(){return`<h1>Rule<span>s</span></h1>
+  <div class="card"><div class="w6 sm" style="margin-bottom:14px">Predictions (per match)</div>
+  <div class="sm" style="line-height:1.8">Each player submits before the first ball of each match:<br><br>
+  1. Winning team &nbsp;&nbsp; 2. Top run scorer &nbsp;&nbsp; 3. Top wicket taker &nbsp;&nbsp; 4. Man of the Match</div></div>
+  <div class="card"><div class="w6 sm" style="margin-bottom:14px">Scoring</div>
+  <div class="sm" style="line-height:2.2">
+    Winning team correct: <span class="or w6">+2 pts</span><br>
+    Top run scorer correct: <span class="or w6">+3 pts</span><br>
+    Top wicket taker correct: <span class="or w6">+3 pts</span><br>
+    Man of the Match correct: <span class="or w6">+4 pts</span><br>
+    All 4 correct bonus: <span class="or w6">+3 pts</span>
+  </div></div>
+  <div class="card"><div class="w6 sm" style="margin-bottom:14px">⚡ Powerplay</div>
+  <div class="sm" style="line-height:1.8">
+    Each player gets <span class="or w6">2 powerplays per week</span>. Declare on one specific category when submitting.<br><br>
+    If correct → points for that category are <span class="tl w6">doubled</span><br>
+    If wrong → lose <span style="color:var(--re)" class="w6">half the base points</span> (rounded down)<br><br>
+    Unused powerplays do <strong>not</strong> carry over to the next week.
+  </div></div>
+  <div class="card"><div class="w6 sm" style="margin-bottom:14px">Powerplay points table</div>
+  <div class="sm" style="line-height:2.2">
+    Winner: correct <span class="tl w6">+4</span> · wrong <span style="color:var(--re)" class="w6">−1</span><br>
+    Top scorer: correct <span class="tl w6">+6</span> · wrong <span style="color:var(--re)" class="w6">−1</span><br>
+    Top bowler: correct <span class="tl w6">+6</span> · wrong <span style="color:var(--re)" class="w6">−1</span><br>
+    MoTM: correct <span class="tl w6">+8</span> · wrong <span style="color:var(--re)" class="w6">−2</span>
+  </div></div>
+  <div class="card"><div class="w6 sm" style="margin-bottom:14px">Deadlines & Ties</div>
+  <div class="sm" style="line-height:1.8">
+    Submissions close at the <span class="or w6">first ball of each match</span>. Late = void, no exceptions.<br>
+    Double-header days have separate deadlines per match.<br><br>
+    If two players share top scorer/wickets, <span class="or w6">both names score full points</span>.<br>
+    Rain/no result = no points awarded.
+  </div></div>
+  <div class="card"><div class="w6 sm" style="margin-bottom:14px">Tiebreaker (end of league)</div>
+  <div class="sm" style="line-height:1.8">1. Most powerplays used correctly<br>2. Head-to-head record</div></div>`;
+},
+
+matches(){
+  const now=new Date();
+  let h=`<h1>Match<span>es</span></h1>`;
+  if(!S.curPlayer&&S.players.length>0){
+    h+=`<div class="card" style="margin-bottom:16px"><label style="margin-bottom:10px">Who are you?</label>
+    <div style="display:flex;gap:7px;flex-wrap:wrap">
+    ${S.players.map(p=>`<button class="btn bg bs" onclick="setCur('${p.id}')">${p.name}</button>`).join('')}
+    </div></div>`;
+  }else if(S.curPlayer){
+    const p=S.players.find(x=>x.id===S.curPlayer);
+    h+=`<div style="display:flex;align-items:center;gap:9px;margin-bottom:16px">
+    <span class="xs mu">Playing as:</span><span class="w6 or">${p?.name}</span>
+    <button class="btn bg bs" onclick="setCur(null)">Switch</button></div>`;
+  }
+  if(S.players.length===0)h+=`<div class="al ai">No players added yet — check back soon.</div>`;
+  const byW={};
+  MATCHES.forEach(m=>{if(!byW[m.w])byW[m.w]=[];byW[m.w].push(m)});
+  Object.keys(byW).sort((a,b)=>+a-+b).forEach(w=>{
+    const pp=S.curPlayer?ppLeft(S.curPlayer,+w):null;
+    h+=`<div class="wh"><div class="wl">Week ${w}</div>${pp!==null?`<div class="pill po">⚡ ${pp} PP left</div>`:''}</div>`;
+    byW[w].forEach(m=>{
+      const dead=dl(m),open=now<dead,res=S.results[m.id],settled=res?.ok;
+      const pred=S.curPlayer?S.predictions[m.id]?.[S.curPlayer]:null,sub=!!pred;
+      let sc2=open?'so':(settled?'ss':'sc'),st=open?'Open':(settled?'Scored':'Closed'),cc='';
+      if(sub&&!settled){sc2='sd';st='✓ Done';cc='done'}else if(!open)cc='old';
+      const tz=tzTimes(m.t);
+      h+=`<div class="mc ${cc}" onclick="openM('${m.id}')">
+        <div class="mm">Match ${m.n} · ${fd(m.d)}</div>
+        <div class="mt">${ab(m.t1)} <span class="vs">vs</span> ${ab(m.t2)}</div>
+        <div class="md">${open?'⏱ '+tz.ist+' IST':'Deadline passed'}</div>
+        <div class="tz">${tz.cet} CET &nbsp;·&nbsp; ${tz.pst} PST</div>
+        <span class="sb ${sc2}">${st}</span>
+      </div>`;
+    });
+  });
+  return h;
+},
+
+stand(){
+  const t=totals(),sc=MATCHES.filter(m=>S.results[m.id]?.ok).length;
+  let h=`<h1>Standing<span>s</span></h1>
+  <div class="sg">
+    <div class="sc2"><div class="sn">${S.players.length}</div><div class="sl">Players</div></div>
+    <div class="sc2"><div class="sn">${MATCHES.length}</div><div class="sl">Matches</div></div>
+    <div class="sc2"><div class="sn">${sc}</div><div class="sl">Scored</div></div>
+  </div>`;
+  if(!t.length)return h+`<div class="al ai">No players yet.</div>`;
+  h+=`<div style="display:grid;grid-template-columns:32px 1fr 65px 65px 65px;padding:0 13px;margin-bottom:6px">
+    <div></div><div class="xs mu w6" style="text-transform:uppercase;letter-spacing:1px">Player</div>
+    <div class="xs mu w6" style="text-align:center;text-transform:uppercase;letter-spacing:1px">Pts</div>
+    <div class="xs mu w6" style="text-align:center;text-transform:uppercase;letter-spacing:1px">Preds</div>
+    <div class="xs mu w6" style="text-align:center;text-transform:uppercase;letter-spacing:1px">⚡PP</div>
+  </div>`;
+  t.forEach((p,i)=>{
+    const rc=i===0?'r1':i===1?'r2':i===2?'r3':'';
+    h+=`<div class="lr ${rc}" onclick="openPS('${p.id}')">
+      <div class="rn">${i+1}</div><div class="pn">${p.name}</div>
+      <div class="lp">${p.pts}</div><div class="ls">${p.subs}</div>
+      <div class="lq">${p.ppc}/${p.ppu}</div>
+    </div>`;
+  });
+  if(lastSync)h+=`<div class="xs mu mt16" style="text-align:center">Synced: ${fdt(lastSync)}</div>`;
+  h+=`<button class="btn bg bs mt16" onclick="doSync()">↻ Sync</button>`;
+  return h;
+},
+
+players(){
+  let h=`<h1>Player<span>s</span></h1>`;
+  if(!S.players.length)h+=`<div class="al ai">No players yet.${adminOn?' Add below!':' Ask your admin.'}</div>`;
+  const t=totals();
+  S.players.forEach(p=>{
+    const s=t.find(x=>x.id===p.id);
+    h+=`<div class="card" style="display:flex;align-items:center;justify-content:space-between;padding:13px 17px">
+      <div><div class="w6">${p.name}</div><div class="xs mu mt8">${s?.subs||0} predictions · ${s?.pts||0} pts</div></div>
+      ${adminOn?`<button class="btn bg bs" onclick="rmPlayer('${p.id}')">Remove</button>`:''}
+    </div>`;
+  });
+  if(adminOn)h+=`<button class="btn bp mt16" onclick="addPlayerModal()">+ Add Player</button>`;
+  return h;
+},
+
+setup(){
+  const conn=!!S.sheetUrl;
+  let h=`<h1>Sheet <span>Setup</span></h1>`;
+  h+=`<div class="al ${conn?'ai':'aw'}">${conn?'✅ Connected — syncing automatically.':'⚠️ Not connected.'}</div>`;
+  h+=`<div class="card">
+    <div class="w6 sm" style="margin-bottom:14px">How to connect Google Sheets</div>
+    <div class="step"><div class="sn2">1</div><div class="sm">Create a new Google Sheet named <em>IPL Fantasy 2026</em>.</div></div>
+    <div class="step"><div class="sn2">2</div><div class="sm">Extensions → Apps Script. Delete existing code, paste script below.</div></div>
+    <div class="step"><div class="sn2">3</div><div class="sm">Deploy → New deployment. Type = Web App. Execute as = Me. Access = Anyone. Copy URL.</div></div>
+    <div class="step"><div class="sn2">4</div><div class="sm">Paste URL below and click Save.</div></div>
+    <div class="fg mt16"><label>Apps Script URL</label>
+    <input id="surl" type="text" placeholder="https://script.google.com/macros/s/..." value="${S.sheetUrl}"></div>
+    <div style="display:flex;gap:7px;flex-wrap:wrap">
+      <button class="btn bp" onclick="saveUrl()">Save & Test</button>
+      ${conn?`<button class="btn bg bs" onclick="doSync()">↻ Sync</button>`:''}
+      ${conn?`<button class="btn bd2 bs" onclick="clearUrl()">Disconnect</button>`:''}
+    </div>
+    <div id="sst" style="margin-top:10px"></div>
+  </div>
+  <div class="card">
+    <div class="w6 sm" style="margin-bottom:10px">Apps Script code</div>
+    <textarea readonly onclick="this.select()">${appsScript()}</textarea>
+    <button class="btn bg bs mt8" onclick="copyScript()">Copy to clipboard</button>
+  </div>`;
+  return h;
+}};
+
+// ── APPS SCRIPT ───────────────────────────────────────────────
+function appsScript(){return`const SHEET_NAME = 'data';
+function doGet(e) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sh = ss.getSheetByName(SHEET_NAME);
+  if (!sh) { sh = ss.insertSheet(SHEET_NAME); sh.appendRow(['json']); }
+  const raw = sh.getRange(2, 1).getValue();
+  const d = raw ? JSON.parse(raw) : {players:[],predictions:{},results:{},ppUsed:{}};
+  return ContentService.createTextOutput(JSON.stringify(d)).setMimeType(ContentService.MimeType.JSON);
+}
+function doPost(e) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sh = ss.getSheetByName(SHEET_NAME);
+  if (!sh) { sh = ss.insertSheet(SHEET_NAME); sh.appendRow(['json']); }
+  const payload = JSON.parse(e.postData.contents);
+  const raw = sh.getRange(2, 1).getValue();
+  const cur = raw ? JSON.parse(raw) : {players:[],predictions:{},results:{},ppUsed:{}};
+  if (payload.players !== undefined) cur.players = payload.players;
+  if (payload.predictions !== undefined) Object.assign(cur.predictions, payload.predictions);
+  if (payload.results !== undefined) Object.assign(cur.results, payload.results);
+  if (payload.ppUsed !== undefined) Object.assign(cur.ppUsed, payload.ppUsed);
+  sh.getRange(2, 1).setValue(JSON.stringify(cur));
+  return ContentService.createTextOutput(JSON.stringify({ok:true})).setMimeType(ContentService.MimeType.JSON);
+}`;}
+function copyScript(){navigator.clipboard.writeText(appsScript()).then(()=>toast('Copied!'))}
+
+// ── MATCH MODAL ───────────────────────────────────────────────
+function openM(id){
+  const m=MATCHES.find(x=>x.id===id);
+  const now=new Date(),dead=dl(m),open=now<dead,res=S.results[id],settled=res?.ok;
+  const tz=tzTimes(m.t);
+  const teams=[m.t1,m.t2];
+  let h=`<div class="mo-t">${ab(m.t1)} vs ${ab(m.t2)}</div>
+    <div class="xs mu">Match ${m.n} · ${fd(m.d)} · Week ${m.w}</div>
+    <div class="xs mu" style="margin-top:4px">${tz.ist} IST &nbsp;·&nbsp; ${tz.cet} CET &nbsp;·&nbsp; ${tz.pst} PST</div>
+    <hr class="hr">`;
+
+  // ── PREDICTION FORM (open + player selected) ──
+  if(open&&S.curPlayer){
+    const ex=S.predictions[id]?.[S.curPlayer]||{};
+    const pp=ppLeft(S.curPlayer,m.w),hasPP=!!ex.pp,avail=pp>0||hasPP;
+    h+=`<div class="al ai">⚡ ${pp} powerplay${pp!==1?'s':''} left this week</div>
+    <div class="fg"><label>Winning Team</label><select id="fw">
+      <option value="">Select team...</option>
+      ${teams.map(t=>`<option value="${t}"${ex.winner===t?' selected':''}>${t}</option>`).join('')}
+    </select></div>
+    <div class="fg"><label>Top Run Scorer</label><select id="fb">${squadOpts(teams,ex.topBat)}</select></div>
+    <div class="fg"><label>Top Wicket Taker</label><select id="fp">${squadOpts(teams,ex.topBowl)}</select></div>
+    <div class="fg"><label>Man of the Match</label><select id="fm">${squadOpts(teams,ex.motm)}</select></div>
+    <hr class="hr">
+    <div class="fg"><label>⚡ Powerplay <span class="mu">(optional)</span></label>
+    <select id="fpp" ${!avail?'disabled':''}>
+      <option value="">No powerplay</option>
+      <option value="winner"${ex.pp==='winner'?' selected':''}>Winner (2→4 pts, wrong: −1)</option>
+      <option value="topBat"${ex.pp==='topBat'?' selected':''}>Top Scorer (3→6 pts, wrong: −1)</option>
+      <option value="topBowl"${ex.pp==='topBowl'?' selected':''}>Top Bowler (3→6 pts, wrong: −1)</option>
+      <option value="motm"${ex.pp==='motm'?' selected':''}>MoTM (4→8 pts, wrong: −2)</option>
+    </select></div>
+    <div style="display:flex;gap:7px;margin-top:14px">
+      <button class="btn bp" onclick="savePred('${id}')">Save Prediction</button>
+      <button class="btn bg" onclick="closeM()">Cancel</button>
+    </div>`;
+
+  // ── DEADLINE PASSED — show all predictions ──
+  }else if(!open&&!settled){
+    h+=`<div class="al aw">Deadline passed — match in progress. Waiting for result.</div>`;
+    h+=`<div class="xs mu w6" style="text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">All Predictions</div>`;
+    let anyPred=false;
+    S.players.forEach(p=>{
+      const pred=S.predictions[id]?.[p.id];
+      if(!pred){
+        h+=`<div style="padding:8px 0;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center"><span class="sm">${p.name}</span><span class="xs mu">No prediction</span></div>`;
+        return;
+      }
+      anyPred=true;
+      const ppCat=pred.pp?` <span style="color:var(--or)">⚡${pred.pp}</span>`:'';
+      h+=`<div style="margin-bottom:12px">
+        <div class="sm w6" style="margin-bottom:6px">${p.name}${ppCat}</div>
+        <div class="pg" style="margin-top:0">
+          <div class="pc"><div class="pl">Winner</div><div class="pv">${pred.winner||'—'}</div></div>
+          <div class="pc"><div class="pl">Top Scorer</div><div class="pv">${pred.topBat||'—'}</div></div>
+          <div class="pc"><div class="pl">Top Bowler</div><div class="pv">${pred.topBowl||'—'}</div></div>
+          <div class="pc ${pred.pp==='motm'?'pp':''}"><div class="pl">MoTM</div><div class="pv">${pred.motm||'—'}</div></div>
+        </div>
+      </div>`;
+    });
+    if(!anyPred&&S.players.length===0)h+=`<div class="xs mu">No predictions submitted.</div>`;
+    if(adminOn)h+=`<hr class="hr"><button class="btn b2 bs" onclick="resultModal('${id}')">Enter Result & Score</button>`;
+
+  }else if(open&&!S.curPlayer){
+    h+=`<div class="al aw">Select who you are on the Matches page first.</div>`;
+  }
+
+  // ── SETTLED — show results + scored predictions ──
+  if(settled){
+    h+=`<div class="xs mu w6" style="text-transform:uppercase;letter-spacing:1px;margin-bottom:7px">Official Result</div>
+    <div class="pg" style="margin-top:0">
+      ${['winner','topBat','topBowl','motm'].map((k,i)=>`<div class="pc"><div class="pl">${['Winner','Top Scorer','Top Bowler','MoTM'][i]}</div><div class="pv or">${res[k]}</div></div>`).join('')}
+    </div><hr class="hr">
+    <div class="xs mu w6" style="text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">All Predictions & Points</div>`;
+    S.players.forEach(p=>{
+      const pred=S.predictions[id]?.[p.id];
+      if(!pred){h+=`<div style="padding:8px 0;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center"><span class="sm">${p.name}</span><span class="xs mu">No prediction</span></div>`;return}
+      const sc=score(pred,res);
+      h+=`<div style="margin-bottom:11px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+          <span class="w6 sm">${p.name}</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:19px;color:${sc.pts>0?'var(--tl)':sc.pts<0?'var(--re)':'var(--mu)'}">${sc.pts>0?'+':''}${sc.pts} pts</span>
+        </div>${predGrid(pred,res,sc)}</div>`;
+    });
+    if(adminOn)h+=`<hr class="hr"><button class="btn bg bs" onclick="resultModal('${id}')">Edit Result</button>`;
+  }
+
+  if(!settled&&adminOn&&!open){
+    // already shown above
+  }else if(!settled&&adminOn&&open){
+    h+=`<hr class="hr"><button class="btn b2 bs" onclick="resultModal('${id}')">Enter Result & Score</button>`;
+  }
+
+  h+=`<div class="mt20"><button class="btn bg bs" onclick="closeM()">Close</button></div>`;
+  modal(h);
+}
+
+function predGrid(pred,res,sc){
+  const cats=[['winner','Winner'],['topBat','Top Scorer'],['topBowl','Top Bowler'],['motm','MoTM']];
+  return`<div class="pg" style="margin-top:0">${cats.map(([k,l])=>{
+    const ok=res&&(pred[k]||'').toLowerCase().trim()===(res[k]||'').toLowerCase().trim()&&pred[k];
+    const bd=sc?.bd[k],pp=pred.pp===k;
+    return`<div class="pc ${res?(ok?'ok':'no'):''} ${pp?'pp':''}">
+      <div class="pl">${l}</div><div class="pv" style="font-size:12px">${pred[k]||'—'}</div>
+      ${bd!==undefined?`<div class="xs" style="margin-top:3px;color:${bd.pts>0?'var(--tl)':bd.pts<0?'var(--re)':'var(--mu)'}">${bd.pts>0?'+':''}${bd.pts}</div>`:''}
+    </div>`}).join('')}</div>`;
+}
+
+async function savePred(id){
+  const m=MATCHES.find(x=>x.id===id);
+  const winner=document.getElementById('fw').value;
+  const topBat=document.getElementById('fb').value;
+  const topBowl=document.getElementById('fp').value;
+  const motm=document.getElementById('fm').value;
+  const pp=document.getElementById('fpp').value;
+  if(!winner&&!topBat&&!topBowl&&!motm){alert('Fill in at least one field.');return}
+  const pid=S.curPlayer,w=m.w;
+  if(!S.ppUsed[pid])S.ppUsed[pid]={};
+  if(!S.ppUsed[pid][w])S.ppUsed[pid][w]=0;
+  const ex=S.predictions[id]?.[pid],oldPP=ex?.pp;
+  if(oldPP&&!pp)S.ppUsed[pid][w]=Math.max(0,S.ppUsed[pid][w]-1);
+  if(!oldPP&&pp){if(S.ppUsed[pid][w]>=PP_MAX){alert('No powerplays left this week!');return}S.ppUsed[pid][w]++}
+  if(!S.predictions[id])S.predictions[id]={};
+  S.predictions[id][pid]={winner,topBat,topBowl,motm,pp};
+  closeM();toast('Saving...');
+  await push({predictions:S.predictions,ppUsed:S.ppUsed});
+  toast('Saved!');render();
+}
+
+function resultModal(id){
+  const m=MATCHES.find(x=>x.id===id),ex=S.results[id]||{};
+  const teams=[m.t1,m.t2];
+  modal(`<div class="mo-t">Enter Result</div>
+    <div class="xs mu" style="margin-bottom:16px">${m.t1} vs ${m.t2} · Match ${m.n}</div>
+    <div class="fg"><label>Winning Team</label><select id="rw">
+      <option value="">Select...</option>
+      ${teams.map(t=>`<option value="${t}"${ex.winner===t?' selected':''}>${t}</option>`).join('')}
+    </select></div>
+    <div class="fg"><label>Top Run Scorer</label><select id="rb">${squadOpts(teams,ex.topBat)}</select></div>
+    <div class="fg"><label>Top Wicket Taker</label><select id="rp">${squadOpts(teams,ex.topBowl)}</select></div>
+    <div class="fg"><label>Man of the Match</label><select id="rm">${squadOpts(teams,ex.motm)}</select></div>
+    <div style="display:flex;gap:7px;margin-top:16px">
+      <button class="btn b2" onclick="saveResult('${id}')">Save & Score</button>
+      <button class="btn bg" onclick="closeM()">Cancel</button>
+    </div>`);
+}
+
+async function saveResult(id){
+  const winner=document.getElementById('rw').value;
+  const topBat=document.getElementById('rb').value;
+  const topBowl=document.getElementById('rp').value;
+  const motm=document.getElementById('rm').value;
+  if(!winner||!topBat||!topBowl||!motm){alert('Fill all fields.');return}
+  S.results[id]={winner,topBat,topBowl,motm,ok:true};
+  closeM();toast('Saving...');
+  await push({results:S.results});
+  toast('Scored!');render();openM(id);
+}
+
+function openPS(pid){
+  const p=S.players.find(x=>x.id===pid);
+  let pts=0,cor={winner:0,topBat:0,topBowl:0,motm:0},ppu=0,ppc=0,rows='';
+  MATCHES.filter(m=>S.results[m.id]?.ok).forEach(m=>{
+    const pred=S.predictions[m.id]?.[pid],res=S.results[m.id];
+    if(!pred||!res)return;
+    const sc=score(pred,res);if(!sc)return;
+    pts+=sc.pts;
+    ['winner','topBat','topBowl','motm'].forEach(k=>{if(sc.bd[k]?.ok)cor[k]++});
+    if(pred.pp){ppu++;if(sc.bd[pred.pp]?.ok)ppc++}
+    rows+=`<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--bd)">
+      <div><div class="sm w6">${ab(m.t1)} vs ${ab(m.t2)}</div><div class="xs mu">${fd(m.d)}</div></div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:${sc.pts>0?'var(--tl)':sc.pts<0?'var(--re)':'var(--mu)'}">${sc.pts>0?'+':''}${sc.pts}</div>
+    </div>`;
+  });
+  modal(`<div class="mo-t">${p.name}</div>
+    <div class="sg" style="margin-bottom:14px">
+      <div class="sc2"><div class="sn" style="color:var(--tl)">${pts}</div><div class="sl">Total Pts</div></div>
+      <div class="sc2"><div class="sn">${ppc}/${ppu}</div><div class="sl">PP ✓/used</div></div>
+      <div class="sc2"><div class="sn">${cor.winner+cor.topBat+cor.topBowl+cor.motm}</div><div class="sl">Correct</div></div>
+    </div>
+    <div class="pg" style="margin-bottom:14px">
+      <div class="pc"><div class="pl">Winner ✓</div><div class="pv">${cor.winner}</div></div>
+      <div class="pc"><div class="pl">Top Bat ✓</div><div class="pv">${cor.topBat}</div></div>
+      <div class="pc"><div class="pl">Top Bowl ✓</div><div class="pv">${cor.topBowl}</div></div>
+      <div class="pc"><div class="pl">MoTM ✓</div><div class="pv">${cor.motm}</div></div>
+    </div>
+    <hr class="hr">
+    <div class="xs mu w6" style="text-transform:uppercase;letter-spacing:1px;margin-bottom:7px">Match History</div>
+    ${rows||'<div class="sm mu">No scored matches yet.</div>'}
+    <div class="mt20"><button class="btn bg bs" onclick="closeM()">Close</button></div>`);
+}
+
+function addPlayerModal(){
+  modal(`<div class="mo-t">Add Player</div>
+    <div class="fg"><label>Name</label><input id="pname" type="text" placeholder="e.g. Rahul"></div>
+    <div style="display:flex;gap:7px;margin-top:14px">
+      <button class="btn bp" onclick="addPlayer()">Add</button>
+      <button class="btn bg" onclick="closeM()">Cancel</button>
+    </div>`);
+}
+async function addPlayer(){
+  const name=document.getElementById('pname').value.trim();
+  if(!name)return;
+  if(S.players.find(p=>p.name.toLowerCase()===name.toLowerCase())){alert('Already exists.');return}
+  S.players.push({id:uid(),name});closeM();
+  await push({players:S.players});render();
+}
+async function rmPlayer(pid){
+  if(!confirm('Remove player?'))return;
+  S.players=S.players.filter(p=>p.id!==pid);
+  if(S.curPlayer===pid)S.curPlayer=null;
+  await push({players:S.players});render();
+}
+
+async function saveUrl(){
+  const url=document.getElementById('surl').value.trim();
+  if(!url)return;
+  S.sheetUrl=url;save();
+  document.getElementById('sst').innerHTML=`<span class="spin"></span> Testing...`;
+  const ok=await pull();
+  document.getElementById('sst').innerHTML=ok
+    ?`<span style="color:var(--tl)">✅ Connected!</span>`
+    :`<span style="color:var(--re)">❌ Failed — check URL and set access to "Anyone".</span>`;
+  if(ok)render();
+}
+function clearUrl(){if(!confirm('Disconnect?'))return;S.sheetUrl='';save();render()}
+async function doSync(){const ok=await pull();render();toast(ok?'Synced!':'Sync failed')}
+
+function toggleAdmin(){
+  if(!adminOn){const pw=prompt('Admin password:');if(pw!==ADMIN_PW){alert('Wrong password.');return}}
+  adminOn=!adminOn;
+  document.getElementById('abtn').classList.toggle('on',adminOn);
+  const t=document.getElementById('setupTab');
+  if(t)t.style.display=adminOn?'':'none';
+  if(!adminOn&&page==='setup')go('matches');
+  else render();
+}
+
+function modal(h){document.getElementById('mo').innerHTML=h;document.getElementById('ov').classList.remove('h')}
+function closeM(){document.getElementById('ov').classList.add('h')}
+function ovClick(e){if(e.target===document.getElementById('ov'))closeM()}
+function uid(){return Math.random().toString(36).slice(2,10)}
+function setCur(id){S.curPlayer=id;save();render()}
+let _tt;
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.style.opacity='1';clearTimeout(_tt);_tt=setTimeout(()=>t.style.opacity='0',2200)}
+
+// inject hidden Setup tab
+(function(){
+  const s=document.createElement('button');
+  s.className='nt';s.id='setupTab';s.textContent='Setup';
+  s.style.display='none';s.dataset.page='setup';
+  s.onclick=()=>go('setup');
+  document.getElementById('navTabs').appendChild(s);
+})();
+
+load();render();
+if(S.sheetUrl)pull().then(ok=>{if(ok)render()});
+setInterval(()=>{if(S.sheetUrl&&!syncing)pull().then(ok=>{if(ok)render()})},60000);
+</script>
+</body>
+</html>
 input,select{width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--bd);
   background:var(--s2);color:var(--tx);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
 input:focus,select:focus{border-color:var(--or)}
